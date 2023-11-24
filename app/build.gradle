@@ -1,0 +1,68 @@
+plugins {
+    alias(libs.plugins.androidApplication)
+}
+
+//获取key文件
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    namespace 'com.GG.Accounting'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.GG.Accounting"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        config {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.config
+
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    def fileName = "[手机]记账_${defaultConfig.versionName}.apk"
+                    outputFileName = fileName
+                }
+            }
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    //毛玻璃蒙层控件：https://github.com/centerzx/ShapeBlurView
+    implementation project(":BlurView")
+    //全局异常捕获：https://github.com/gzu-liyujiang/AndroidCrashHelper
+    implementation project(":CrashHelper")
+    //封神状态栏：https://github.com/gyf-dev/ImmersionBar
+    implementation libs.immersionbar
+
+    implementation libs.appcompat
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}

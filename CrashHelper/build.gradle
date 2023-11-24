@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+
+android {
+    namespace 'com.GG.CrashHelper'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 34
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
