@@ -1,9 +1,13 @@
 package com.GG.Accounting.Activity;
 
+import static com.gyf.immersionbar.ImmersionBar.getNavigationBarHeight;
+
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.view.WindowInsetsAnimation;
 import android.widget.TextView;
@@ -24,9 +28,6 @@ import java.util.List;
 import cn.qqtheme.framework.tool.CrashHelper;
 
 public class CrashActivity extends Activity {
-    float a = 0;
-    float b = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,15 +53,19 @@ public class CrashActivity extends Activity {
         TextView textView = findViewById(R.id.crash_textview);
         textView.setText(String.format("%s %s %s", stackTrace, getString(R.string.devices), deviceInfo));
 
-        //底栏模糊
+        //增加底栏高度
         ShapeBlurView blurView = findViewById(R.id.crash_blurview);
+        int navigationBarHeight = getNavigationBarHeight(this);
+        ViewGroup.LayoutParams blurViewLayoutParams = blurView.getLayoutParams();
+        blurViewLayoutParams.height = ((int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 56, getResources().getDisplayMetrics())) + navigationBarHeight;
+        blurView.setLayoutParams(blurViewLayoutParams);
+        //底栏模糊
         blurView.refreshView(
                 ShapeBlurView.build(this).setBlurMode(BlurMode.MODE_RECTANGLE)
                         .setOverlayColor(Color.valueOf(255, 255, 255, 60).toArgb())
                         .setCornerRadius(25f)
 //                        .setCornerRadius(BlurCorner.TOP_LEFT, 50f)
         );
-
 
         CardView showIME = findViewById(R.id.crash_share);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -84,4 +89,5 @@ public class CrashActivity extends Activity {
             });
         }
     }
+
 }
