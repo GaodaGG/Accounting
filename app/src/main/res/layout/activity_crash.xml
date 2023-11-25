@@ -32,8 +32,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:textIsSelectable="true"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -49,6 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:elevation="25dp"
             android:stateListAnimator="@null">
 
             <net.center.blurview.ShapeBlurView
@@ -59,14 +60,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/crash_share"
+                android:id="@+id/crash_save"
                 android:layout_width="156dp"
                 android:layout_height="48dp"
+                app:cardBackgroundColor="@color/black"
                 app:cardCornerRadius="18dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/crash_copy"
+                app:layout_constraintEnd_toStartOf="@+id/crash_restartApp"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toEndOf="@+id/crash_blurview"
@@ -75,25 +76,35 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/crash_copyError"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/crash_copy"
+                android:id="@+id/crash_restartApp"
                 android:layout_width="156dp"
                 android:layout_height="48dp"
+                app:cardBackgroundColor="@color/black"
                 app:cardCornerRadius="18dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/crash_share"
+                app:layout_constraintStart_toEndOf="@+id/crash_save"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/crash_restartApp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
 

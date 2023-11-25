@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">记账</string>
 
-    <string name="crashTitle">软件出错了！</string>
-    <string name="devices">设备：</string>
+    <string name="crash_titleText">软件出错了！</string>
+    <string name="crash_devices">设备：</string>
+    <string name="crash_copyError">保存报错</string>
+    <string name="crash_restartApp">重启软件</string>
 </resources>
