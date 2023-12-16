@@ -11,7 +11,9 @@ import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.WindowManager;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -22,23 +24,19 @@ import java.io.StringWriter;
 import java.lang.ref.WeakReference;
 import java.text.DateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
 import cn.qqtheme.framework.AppConfig;
 import cn.qqtheme.framework.activity.CrashActivity;
 
-import android.view.WindowManager;
-import android.util.DisplayMetrics;
-
-import java.util.Calendar;
-
 /**
  * UncaughtException处理类,当程序发生Uncaught异常的时候,由该类来接管程序,并记录发送错误报告.
  *
  * @author 李玉江[QQ:1023694760]
  * @version 2014-10-05，20151227
- * @link https://github.com/Ereza/CustomActivityOnCrash
+ * @link <a href="https://github.com/Ereza/CustomActivityOnCrash">...</a>
  * @see MyUncaughtExceptionHandler
  * @see MyActivityLifecycleCallbacks
  * @see CrashActivity

@@ -11,6 +11,7 @@ import java.util.List;
 
 public class CrashAnimation {
     public static void animation(ConstraintLayout bottomView) {
+        //软键盘顶起
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             bottomView.setWindowInsetsAnimationCallback(new WindowInsetsAnimation.Callback(WindowInsetsAnimation.Callback.DISPATCH_MODE_STOP) {
                 @NonNull

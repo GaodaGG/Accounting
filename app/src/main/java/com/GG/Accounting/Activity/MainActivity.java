@@ -2,7 +2,6 @@ package com.GG.Accounting.Activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.GG.Accounting.R;
 import com.gyf.immersionbar.ImmersionBar;
@@ -21,6 +20,6 @@ public class MainActivity extends Activity {
                 .transparentNavigationBar()
                 .init();
 
-        Toast.makeText(this, null, Toast.LENGTH_SHORT).show();
+        //int a = 1 / 0;
     }
 }

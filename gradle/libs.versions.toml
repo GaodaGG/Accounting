@@ -6,6 +6,8 @@ junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
 material = "1.10.0"
+rounded = "1.23.1"
+sharedElement = "latest.release"
 
 [libraries]
 immersionbar = { module = "com.geyifeng.immersionbar:immersionbar", version.ref = "immersionbar" }
@@ -14,6 +16,8 @@ ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitV
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+rounded = { module = "com.github.Arcns.arc-fast:rounded", version.ref = "rounded" }
+shared-element = { module = "com.github.Arcns.fast-transition:shared-element", version.ref = "sharedElement" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

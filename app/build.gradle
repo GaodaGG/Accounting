@@ -31,20 +31,27 @@ android {
     }
 
     buildTypes {
+        applicationVariants.all { variant ->
+            variant.outputs.all {
+                def fileName = "[手机]${defaultConfig.name}_${defaultConfig.versionName}_${defaultConfig.signingConfig}.apk"
+                outputFileName = fileName
+            }
+        }
+
         release {
             minifyEnabled true
             shrinkResources true
             signingConfig signingConfigs.config
-
-            applicationVariants.all { variant ->
-                variant.outputs.all {
-                    def fileName = "[手机]记账_${defaultConfig.versionName}.apk"
-                    outputFileName = fileName
-                }
-            }
-
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            debuggable true
+            signingConfig signingConfigs.config
+        }
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
